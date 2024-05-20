@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Khula:wght@300;400;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+html {
+  color-scheme: dark;
+  font-size: 62.5%;
+  overflow-x: hidden;
+}
+
+body {
+  background-color: black;
+}
+
+@layer components {
+  .container {
+    max-width: 140rem;
+    margin-inline: auto;
+    /* overflow-x: hidden; */
+  }
+
+  .min-container {
+    max-width: 120rem;
+    margin-inline: auto;
+  }
+
+  .gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    top: -1%;
+    border-radius: 2000px;
+    z-index: -1;
+    height: 105%;
+    margin-left: -1px;
+    margin-right: -1px;
+    display: flex;
+    background-image: linear-gradient(to right, #02fcef, #ffb52b, #a02bfe);
+    opacity: 50%;
+  }
+}
+
+@layer utilities {
+  .heading {
+    @apply font-bold font-openSans text-transparent bg-clip-text py-4 text-[4.8rem] lg:text-[8.4rem] leading-[1.1] mb-10 bg-textGradient;
+  }
+
+  .border-gradient {
+    @apply before:content-[''] before:absolute before:bg-borderGradient before:w-[100%] before:py-1 before:px-0  before:h-[94%] before:-z-10 before:rounded-full;
+  }
+
+  .btn-white {
+    @apply flex items-center justify-between font-inter bg-white font-semibold text-3xl text-black px-8 py-5 rounded-full hover:bg-[#eee] duration-200;
+  }
+
+  .btn {
+    @apply flex items-center justify-between font-inter font-semibold  text-3xl text-dark-gray px-8 py-4 duration-200;
+  }
+  .padding-lg {
+    @apply sm:py-28 py-16 px-16;
+  }
+
+  .padding-sm {
+    @apply sm:py-16 py-10;
+  }
+
+  .padding-pb-lg {
+    @apply sm:pb-24 pb-16;
+  }
+
+  .padding-pb-sm {
+    @apply sm:pb-16 py-10;
+  }
+
+  .padding-xl {
+    @apply pb-[30rem];
+  }
+}
